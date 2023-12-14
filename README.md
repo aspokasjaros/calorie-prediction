@@ -33,6 +33,7 @@ At this point, I want to know if I have improved my model or if I have overcompl
 | ----------- | ----------- |----------- |
 | Training | 0.9956 |  6.22 |
 | Test | 0.9960 |  5.99 |
+
 From the table above, we can see the R^2 for both the training set and test set are incredibly similar, implying the model is not overfit to the training data, and both very close to 1, implying the model accurately captures the data generating process and can explain the different variances from the means of the data set. In the RMSE column, the numbers are slightly different still, but have significantly improved since the baseline model. This tells me the model can more accurately predict total calories of a recipe based on given macronutrient infomation with an average error of about 6 calories.
 
 ---
@@ -45,6 +46,7 @@ After splitting my data into two data sets with the comparison described above, 
 | ----------- | ----------- |----------- |
 | Good | 0.9957 |  6.13 |
 | Bad | 0.9989 |  4.68 |
+
 All the metrics are close enough to the original metrics from the final model that I fail to reject the null hypothesis. What is interesting to me, however, is that the error for the "bad" recipes is smaller than the error for "good" recipes, which contradicts what I predicted I may see in the paragraph above. With the given information, I can confidently say my model is highly likely to be fair for recipes of all ratings.
 
 ---
