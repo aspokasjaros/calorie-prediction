@@ -33,6 +33,23 @@ At this point, I want to know if I have improved my model or if I have overcompl
 | ----------- | ----------- |----------- |
 | Training | 0.9956 |  6.22 |
 | Test | 0.9960 |  5.99 |
+<table>
+    <tr>
+        <th>Data Set</th>
+        <th>R^2</th>
+        <th>RMSE</th>
+    </tr>
+    <tr>
+        <td>Training</td>
+        <td>0.9956</td>
+        <td>6.22</td>
+    </tr>
+    <tr>
+          <td>Test</td>
+          <td>0.9960</td>
+          <td>5.99</td>
+      </tr>
+</table>
 
 From the table above, we can see the R^2 for both the training set and test set are incredibly similar, implying the model is not overfit to the training data, and both very close to 1, implying the model accurately captures the data generating process and can explain the different variances from the means of the data set. In the RMSE column, the numbers are slightly different still, but have significantly improved since the baseline model. This tells me the model can more accurately predict total calories of a recipe based on given macronutrient infomation with an average error of about 6 calories.
 
