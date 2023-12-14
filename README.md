@@ -29,10 +29,7 @@ Lasso Regression works to minimze the sum of squared difference between predicte
 Since this is a new model, I needed to ensure that it can still generalize to unseen data. I used train_test_split again with the same test proportion and used both data sets to ensure that my model isn't overfitting and can provide plausible prediction for calories based on given nutritional information. After fitting the new model to the data, the intercept is considerably smaller at 11.25 (implying that a recipe with 0 PDV for each macronutrient tracked will have about 11 calories). The new weights provide a completely different perspective on the role of sugar and sodium in recipes for me (I had previously assumed sugar contributed far more heavily, hence why I used it as one of my baseline model parameters) but the weights for sugar and sodium were 0.00 (so small that Python had to round it down to 0) and -3.85*e^-3 respectively. Sodium has such a small contribution to total calories that it actually "takes away" from the final value. The parameters with the highest weights were carbohydrates (11.65), total fat (5.69), and protein (2.16). The returned weights align with my prediction before modelling.
 
 At this point, I want to know if I have improved my model or if I have overcomplicated and need to change my hyperparameters or decrease the number of features I used. To do this, I found the RMSE and R^2 of my training and test sets.
-|Data Set| R^2 | RMSE |
-| ----------- | ----------- |----------- |
-| Training | 0.9956 |  6.22 |
-| Test | 0.9960 |  5.99 |
+
 <table>
     <tr>
         <th>Data Set</th>
@@ -59,10 +56,24 @@ From the table above, we can see the R^2 for both the training set and test set 
 The final aspect of my model I want to confirm is that it is a fair representation of all data, regardless of any possible outlying factors. To test this, I will split the dataset in two halves: "bad recipes" where the average rating is strictly less than 3.0, and "good recipes" where the average rating is greater than or equal to 3.0. I chose this split because I've recognized a trend around me where people tend to praise "healthier" recipes considerably more, and would probably give these recipes a better rating than "bad" recipes that are not as "healthy." People often judge a recipe's "health" by it's total calories, where high-calorie recipes are deemed unhealthy. With these assumptions, my null hypothesis is that my model is fair for both "healthy, good" recipes and "unhealthy, bad" recipes. The alternative hypothesis is the model can more accurately predict "healthy" recipes due to the observed calorie value for those recipes being lower, so the RMSE would also likely be lower.
 
 After splitting my data into two data sets with the comparison described above, I re-fit and ran my final model on the "good" and "bad" data sets and got the following metrics:
-|Data Set| R^2 | RMSE |
-| ----------- | ----------- |----------- |
-| Good | 0.9957 |  6.13 |
-| Bad | 0.9989 |  4.68 |
+
+<table>
+    <tr>
+        <th>Data Set</th>
+        <th>R^2</th>
+        <th>RMSE</th>
+    </tr>
+    <tr>
+        <td>Good</td>
+        <td>0.9957</td>
+        <td>6.13</td>
+    </tr>
+    <tr>
+          <td>Bad</td>
+          <td>0.9989</td>
+          <td>4.68</td>
+      </tr>
+</table>
 
 All the metrics are close enough to the original metrics from the final model that I fail to reject the null hypothesis. What is interesting to me, however, is that the error for the "bad" recipes is smaller than the error for "good" recipes, which contradicts what I predicted I may see in the paragraph above. With the given information, I can confidently say my model is highly likely to be fair for recipes of all ratings.
 
