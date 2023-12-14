@@ -1,5 +1,5 @@
 # Calorie Prediction using Python/Sci-Kit Learn
-The first part of this project, including exploratory data analysis, can be found [here]((https://aspokasjaros.github.io/recipe_analysis/)
+The first part of this project, including exploratory data analysis, can be found [here](https://aspokasjaros.github.io/recipe_analysis/url)
 ---
 ## Framing the Problem
 ## Baseline Model
